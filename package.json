@@ -2,13 +2,15 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "This is Backend of Ebook Web App",
-  "main": "server.ts",
+  "main": "dist/server.js",
+  "type": "module",
   "scripts": {
-    "start": "npm run build && node dist/server.js",
-    "dev": "nodemon server.ts",
-    "build": "tsc",
+    "start": "npm run build && node --no-warnings=ExperimentalWarning dist/server.js",
+    "dev": "nodemon --exec 'node --loader ts-node/esm' server.ts",
+    "build": "tsc -p tsconfig.json",
+    "pm2:start": "pm2 start npm --name 'backend' -- start",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docker:publish": "docker build -t muzzammil759/elib-backend:v1 --platform linux/amd64 . && docker push muzzammil759/elib-backend:v1 ",
+    "docker:publish": "docker build -t muzzammil759/elib-backend:v1 --platform linux/amd64 . && docker push muzzammil759/elib-backend:v1",
     "DockerRun": "docker run -it -p 8080:8080 muzzammil759/elib-backend:v3"
   },
   "keywords": [
