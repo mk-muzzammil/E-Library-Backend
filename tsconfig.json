@@ -5,16 +5,13 @@
     "outDir": "./dist",
     "rootDir": ".",
     "moduleResolution": "node",
-    "strict": true,
     "esModuleInterop": true,
-    "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-    "types": ["node"],
+    "strict": true,
     "baseUrl": ".",
     "paths": {
       "*": ["node_modules/*"]
     }
   },
-  "include": ["**/*.ts"],
+  "include": ["src/**/*.ts"], // Explicitly include source files
   "exclude": ["node_modules", "dist"]
 }
